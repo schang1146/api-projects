@@ -1,0 +1,21 @@
+{
+    "name": "api-projects",
+    "version": "1.0.0",
+    "description": "API for Personal Projects",
+    "main": "index.js",
+    "repository": "https://github.com/schang1146/api-projects.git",
+    "author": "schang1146 <sammychang2185@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "node index.js",
+        "server": "nodemon index.js"
+    },
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "knex": "^0.21.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
+}
