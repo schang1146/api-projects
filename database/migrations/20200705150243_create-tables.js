@@ -1,20 +1,26 @@
 exports.up = function(knex) {
     return knex.schema
+        .createTable('tags', table => {
+            table.increments();
+            table.string('tag').notNullable();
+        })
         .createTable('projects', table => {
             table.increments();
             table.string('title').notNullable();
             table.string('description').notNullable();
             table.string('url').notNullable();
-            table.string('tags-id')
+            table.string('github_url').notNullable();
+            table.integer('tags_id').references('tags.id');
         })
-        .createTable('tags', table => {
-            table.increments();
-        })
-        .createTable('project-tags', table => {
-
+        .createTable('project_tags', table => {
+            table.integer('project_id').references('projects.id');
+            table.integer('tag_id').references('tags.id');
         })
 };
 
 exports.down = function(knex) {
-  
+    return knex.schema
+        .dropTableIfExists('project_tags')
+        .dropTableIfExists('projects')
+        .dropTableIfExists('tags');
 };
