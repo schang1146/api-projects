@@ -3,8 +3,8 @@ exports.seed = function (knex) {
         {
             title: 'Placeholder',
             description: 'Placeholder',
-            url: 'Placeholder',
-            github_url: 'Placeholder',
+            url: 'https://www.reddit.com/',
+            github_url: 'https://github.com/',
         },
     ]);
 };
