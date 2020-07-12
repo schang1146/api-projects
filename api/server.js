@@ -1,11 +1,17 @@
-/* import dependencies */
+/* dependencies */
 const express = require('express');
+const cors = require('cors');
+
+/* routers */
+const projectsRouter = require('../routes/projectsRouter');
 
 /* server pipeline */
 const server = express();
+server.use(express.json());
+server.use(cors());
 
-/* import routes */
-// server.use('/api/projects', projectRouter);
+/* server pipeline - routes */
+server.use('/api/projects', projectsRouter);
 
 /* GET '/' */
 server.get('/', (req, res) => {
