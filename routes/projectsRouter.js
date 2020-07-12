@@ -40,8 +40,7 @@ router.put('/:id', async (req, res) => {
     const update = req.body;
 
     try {
-        const boo = await Projects.update(id, update);
-        console.log(boo);
+        await Projects.update(id, update);
         res.status(202).json({ message: 'Project successfully updated!' });
     } catch (err) {
         res.status(500).json({ error: err.message });
