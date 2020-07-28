@@ -5,6 +5,12 @@ const Projects = require('../models/projects');
 router.post('/', async (req, res) => {
     const project = req.body;
 
+    if (!project.title || !project.description || !project.url || !project.github_url) {
+        return res.status(400).json({
+            error: 'Missing one or more required properties: title, description, url, github_url!',
+        });
+    }
+
     try {
         const newProject = await Projects.add(project);
         res.status(201).json(newProject);

@@ -7,8 +7,8 @@ const projectsRouter = require('../routes/projectsRouter');
 
 /* server pipeline */
 const server = express();
-server.use(express.json());
 server.use(cors());
+server.use(express.json());
 
 /* server pipeline - routes */
 server.use('/api/projects', projectsRouter);
